@@ -31,18 +31,29 @@
      <div class="container mt-3">
         <div class="row d-flex justify-content-center">
             <div class="col-4">
-                <h2>Edit Category</h2>
+                <h2>Detail Product</h2>
                 <hr>
         
-                <form action="/categories/edit" method="POST">
-                <input type="hidden" name="id" value="{{ .category.Id }}">
+                <form action="/products/add" method="POST">
                 <div class="mb-3">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-control" name="name" autocomplete="off" value="{{ .category.Name }}">
+                    <input type="text" class="form-control" name="name" autocomplete="off" value="{{ .product.Name }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <input type="text" class="form-control" name="category_id" autocomplete="off" value="{{ .product.Category.Name }}" disabled>
+                </div>
+                </div>
+                <div class="mb-3"></div>
+                    <label class="form-label">Stock</label>
+                    <input type="number" class="form-control" name="stock" autocomplete="off" value="{{ .product.Stock }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" name="Description" rows="3" disabled>{{ .product.Description }}</textarea>
                 </div>
                 <div class="float-end">
-                    <a href="/categories" class="btn btn-secondary">Back</a>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/products" class="btn btn-secondary">Back</a>
                 </div>
                 </form>
             </div>
